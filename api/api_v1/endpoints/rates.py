@@ -11,7 +11,7 @@ def rate_task_get(task):
     return task.get(callback=celery_on_message, propagate=False)
 
 @router.post("/", status_code=201)
-async def rates_celery() -> Any:
+def rates_celery() -> Any:
     """
     Call Rates Celery worker.
     """
