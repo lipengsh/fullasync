@@ -1,1 +1,1 @@
-curl  -X POST http://0.0.0.0:8989/api/v1/rates/
+curl  -X POST http://0.0.0.0:8989/api/rates/

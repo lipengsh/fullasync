@@ -1,6 +1,6 @@
 from typing import Any
 from fastapi import APIRouter 
-from core.celery_app import celery_app
+from core.celery import app
 
 router = APIRouter()
 
@@ -15,7 +15,7 @@ def rates_celery() -> Any:
     """
     Call Rates Celery worker.
     """
-    task = celery_app.send_task("tasks.tasks.benchmark_rate", args=["hello"])
+    task = app.send_task("tasks.tasks.benchmark_rate", args=["hello"])
     result = task.get(propagate=False)
     print(result)
     return result
